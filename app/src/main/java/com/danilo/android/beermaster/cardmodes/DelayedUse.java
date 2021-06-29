@@ -1,4 +1,4 @@
-package com.example.android.beermaster.cardmodes;
+package com.danilo.android.beermaster.cardmodes;
 
 public interface DelayedUse {
     //cartas como 2 a 5 vermelhos podem ser guardadas para usar mais tarde, de forma até a anular

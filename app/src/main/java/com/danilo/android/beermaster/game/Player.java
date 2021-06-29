@@ -1,4 +1,4 @@
-package com.example.android.beermaster.game;
+package com.danilo.android.beermaster.game;
 
 public class Player {
 

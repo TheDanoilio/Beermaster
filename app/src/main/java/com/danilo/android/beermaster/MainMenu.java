@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.android.beermaster.game.Game;
+import com.danilo.android.beermaster.game.Game;
 
 public class MainMenu extends AppCompatActivity {
 
