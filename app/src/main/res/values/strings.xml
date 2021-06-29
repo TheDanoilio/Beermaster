@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Beermaster</string>
+    <string name="welcome_menu_play_btn">Play!</string>
+
+    <!-- Main menu buttons -->
+    <string name="main_menu_play_btn">Play</string>
+    <string name="main_menu_modes_btn">Game Modes</string>
+    <string name="main_menu_rules_btn">Rules</string>
+</resources>
