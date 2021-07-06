@@ -1,5 +1,6 @@
 package com.danilo.android.beermaster.game;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,19 +8,19 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.danilo.android.beermaster.R;
+import com.danilo.android.beermaster.cards.Card;
+import com.danilo.android.beermaster.cards.Deck;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 
-//todo linkedlists para os baralhos ? Aqui ou na Card ?
-//todo menu popup a dizer o que falta sair/já saiu3
+//todo menu popup a dizer o que falta sair/já saiu
 //todo Adicionar um botão para retirar carta aleatória com possibilidade de penalty?
 
 public class Game extends AppCompatActivity {
 
     private ArrayList<Card> deckOfCards = new ArrayList<>();
-    private Card card= new Card(0);
+    private Deck deck= new Deck();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +39,40 @@ public class Game extends AppCompatActivity {
     }
 
     public int getNextCardId(){
-        //todo ir buscar a carta correta à linkedlist ou lá o crl
+        //todo ir buscar a carta correta ao deck
+
         return 1;
     }
-    // todo criar botão para passar para a próxima carta
+    // todo criar botão para passar para a próxima carta?
 
     //todo criar descrição para quando a carta volta
-    // (em conjunto com o botão?)
+    // (ou botão para a descrição?)
     public void showNextCard(ImageView view){
-        //todo falta mudar a carta e apagá-la do deck
 
-        view.setImageResource(deckOfCards.get(0).getId());
+        if (deckOfCards.size() == 0){
+            //todo alterar para deixar de ficar clicável ou assim
+            // assim que o deck fique vazio
+            view.setImageResource(R.drawable.game_over);
+            //Alterar para dois botões - new game e main menu?
+            Intent myIntent = new Intent(view.getContext(), Game.class);
+            startActivityForResult(myIntent, 0);
+        }else {
+            view.setImageResource(deckOfCards.get(0).getId());
+            deckOfCards.remove(0);
+        }
     }
 
     public void shuffleDeck(){
-        deckOfCards = card.createDeck();
+        deckOfCards = deck.createDeck();
         Collections.shuffle(deckOfCards);
+        System.out.println("TÁ AQUI PORRA - for debugging purposes");
+        for (int i = 0; i<deckOfCards.size();i++){
+            System.out.println(deckOfCards.get(i).getDescription());
+        }
+
+    }
+    //todo método para verificar se há cartas iguais na mão de alguém
+    public void checkForSimilarCard(int id){
+
     }
 }

@@ -21,6 +21,7 @@ public class MainMenu extends AppCompatActivity {
 
         playButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
+                System.out.println("PLAY BUTTON CLICKED");
                 Intent myIntent = new Intent(view.getContext(), Game.class);
                 startActivityForResult(myIntent, 0);
             }});
