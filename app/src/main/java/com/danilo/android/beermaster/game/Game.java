@@ -3,6 +3,7 @@ package com.danilo.android.beermaster.game;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +17,14 @@ import java.util.Collections;
 
 //todo menu popup a dizer o que falta sair/já saiu
 //todo Adicionar um botão para retirar carta aleatória com possibilidade de penalty?
+//todo criar botões para pedir : next card for "playerName"
+//todo criar view para dizer as cartas que estão com players(8, k, etc)
 
 public class Game extends AppCompatActivity {
 
     private ArrayList<Card> deckOfCards = new ArrayList<>();
     private Deck deck= new Deck();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +32,20 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.main_game);
         shuffleDeck();
 
+        Button nextCardButton = (Button) findViewById(R.id.button_next_card);
         ImageView deckOfCards = (ImageView) findViewById(R.id.deck_of_cards);
         deckOfCards.setImageResource(R.drawable.card_back);
-        deckOfCards.setOnClickListener(new View.OnClickListener() {
+
+        nextCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showNextCard(deckOfCards);
             }
         });
     }
+
+
+
 
     public int getNextCardId(){
         //todo ir buscar a carta correta ao deck
