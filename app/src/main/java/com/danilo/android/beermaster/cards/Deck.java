@@ -2,8 +2,8 @@ package com.danilo.android.beermaster.cards;
 
 import com.danilo.android.beermaster.R;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -55,13 +55,13 @@ public class Deck {
 */
 
 
-        Card aceS = new Card(R.drawable.card_1_black);
+        Card aceS = new SpecialCard(R.drawable.card_1_black);
         deck.add(aceS);
         aceS.setDescription("As BLACK");
         Card aceC = new Card(R.drawable.card_1_black);
         deck.add(aceC);
         aceC.setDescription("As BLACK");
-        Card twoS = new Card(R.drawable.card_2_black);
+       /* Card twoS = new SpecialCard(R.drawable.card_2_black);
         deck.add(twoS);
         twoS.setDescription("2 BLACK");
         Card twoC = new Card(R.drawable.card_2_black);
@@ -100,10 +100,10 @@ public class Deck {
         Card eightS = new Card(R.drawable.card_8_black);
         deck.add(eightS);
         eightS.setDescription("8 BLACK");
-        Card eightC = new Card(R.drawable.card_8_black);
+        Card eightC = new SpecialCard(R.drawable.card_8_black);
         deck.add(eightC);
         eightC.setDescription("8 BLACK");
-        Card nineS = new Card(R.drawable.card_9_black);
+        Card nineS = new SpecialCard(R.drawable.card_9_black);
         deck.add(nineS);
         nineS.setDescription("9 BLACK");
         Card nineC = new Card(R.drawable.card_9_black);
@@ -118,26 +118,26 @@ public class Deck {
         Card jackS = new Card(R.drawable.card_11_black);
         deck.add(jackS);
         jackS.setDescription("J BLACK");
-        Card jackC = new Card(R.drawable.card_11_black);
+        Card jackC = new SpecialCard(R.drawable.card_11_black);
         deck.add(jackC);
         jackC.setDescription("J BLACK");
-        Card queenS = new Card(R.drawable.card_12_black);
+        Card queenS = new SpecialCard(R.drawable.card_12_black);
         deck.add(queenS);
         queenS.setDescription("Q BLACK");
-        Card queenC = new Card(R.drawable.card_12_black);
+        Card queenC = new SpecialCard(R.drawable.card_12_black);
         deck.add(queenC);
         queenC.setDescription("Q BLACK");
-        Card kingS = new Card(R.drawable.card_13_black);
+        Card kingS = new SpecialCard(R.drawable.card_13_black);
         deck.add(kingS);
         kingS.setDescription("K BLACK");
-        Card kingC = new Card(R.drawable.card_13_black);
+        Card kingC = new SpecialCard(R.drawable.card_13_black);
         deck.add(kingC);
         kingC.setDescription("K BLACK");
 
-        Card aceH = new Card(R.drawable.card_1_red);
+        Card aceH = new SpecialCard(R.drawable.card_1_red);
         deck.add(aceH);
         aceH.setDescription("As RED");
-        Card aceD = new Card(R.drawable.card_1_red);
+        Card aceD = new SpecialCard(R.drawable.card_1_red);
         deck.add(aceD);
         aceD.setDescription("As RED");
         Card twoH = new Card(R.drawable.card_2_red);
@@ -176,10 +176,10 @@ public class Deck {
         Card sevenD = new Card(R.drawable.card_7_red);
         deck.add(sevenD);
         sevenD.setDescription("7 RED");
-        Card eightH = new Card(R.drawable.card_8_red);
+        Card eightH = new SpecialCard(R.drawable.card_8_red);
         deck.add(eightH);
         eightH.setDescription("8 RED");
-        Card eightD = new Card(R.drawable.card_8_red);
+        Card eightD = new SpecialCard(R.drawable.card_8_red);
         deck.add(eightD);
         eightD.setDescription("8 RED");
         Card nineH = new Card(R.drawable.card_9_red);
@@ -197,21 +197,24 @@ public class Deck {
         Card jackH = new Card(R.drawable.card_11_red);
         deck.add(jackH);
         jackH.setDescription("J RED");
-        Card jackD = new Card(R.drawable.card_11_red);
+        Card jackD = new SpecialCard(R.drawable.card_11_red);
         deck.add(jackD);
         jackD.setDescription("J RED");
-        Card queenH = new Card(R.drawable.card_12_red);
+        Card queenH = new SpecialCard(R.drawable.card_12_red);
         deck.add(queenH);
         queenH.setDescription("Q RED");
-        Card queenD = new Card(R.drawable.card_12_red);
+        Card queenD = new SpecialCard(R.drawable.card_12_red);
         deck.add(queenD);
         queenD.setDescription("Q RED");
-        Card kingH = new Card(R.drawable.card_13_red);
+        Card kingH = new SpecialCard(R.drawable.card_13_red);
         deck.add(kingH);
         kingH.setDescription("K RED");
-        Card kingD = new Card(R.drawable.card_13_red);
+        Card kingD = new SpecialCard(R.drawable.card_13_red);
         deck.add(kingD);
-        kingD.setDescription("K RED");
+        kingD.setDescription("K RED");*/
+
+
+        Collections.shuffle(deck);
 
         return deck;
     }

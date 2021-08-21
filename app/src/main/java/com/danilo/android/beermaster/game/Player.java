@@ -8,7 +8,7 @@ public class Player {
 
     private String name;
     private int color;
-    public LinkedList<Card> cardsOnHand;
+    private boolean[] cardsOnHand;
 
 
 
@@ -29,5 +29,14 @@ public class Player {
 
     public int getColor() {
         return color;
+    }
+
+    public boolean[] getCardsOnHand() {
+        return cardsOnHand;
+    }
+
+    public void setCardsOnHand(boolean[] cardsOnHand, int cardId) {
+        this.cardsOnHand = cardsOnHand;
+
     }
 }

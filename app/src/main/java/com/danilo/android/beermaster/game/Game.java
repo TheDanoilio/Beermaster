@@ -1,5 +1,7 @@
 package com.danilo.android.beermaster.game;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,56 +17,42 @@ import com.danilo.android.beermaster.cards.Deck;
 import java.util.ArrayList;
 import java.util.Collections;
 
-//todo menu popup a dizer o que falta sair/já saiu
-//todo Adicionar um botão para retirar carta aleatória com possibilidade de penalty?
-//todo criar botões para pedir : next card for "playerName"
-//todo criar view para dizer as cartas que estão com players(8, k, etc)
 
 public class Game extends AppCompatActivity {
 
     private ArrayList<Card> deckOfCards = new ArrayList<>();
-    private Deck deck= new Deck();
+    private Deck deck = new Deck();
+    public Button nextCardButton;
+    public ImageView deckView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_game);
+        setContentView(R.layout.game_main);
         shuffleDeck();
 
-        Button nextCardButton = (Button) findViewById(R.id.button_next_card);
-        ImageView deckOfCards = (ImageView) findViewById(R.id.deck_of_cards);
-        deckOfCards.setImageResource(R.drawable.card_back);
+        nextCardButton = (Button) findViewById(R.id.button_next_card);
+        deckView = (ImageView) findViewById(R.id.deck_of_cards);
+        deckView.setImageResource(R.drawable.card_back);
 
         nextCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showNextCard(deckOfCards);
+                showNextCard(deckView);
             }
         });
     }
 
 
-
-
-    public int getNextCardId(){
-        //todo ir buscar a carta correta ao deck
-
-        return 1;
-    }
-    // todo criar botão para passar para a próxima carta?
-
-    //todo criar descrição para quando a carta volta
-    // (ou botão para a descrição?)
     public void showNextCard(ImageView view){
 
         if (deckOfCards.size() == 0){
-            //todo alterar para deixar de ficar clicável ou assim
-            // assim que o deck fique vazio
-            view.setImageResource(R.drawable.game_over);
-            //Alterar para dois botões - new game e main menu?
-            Intent myIntent = new Intent(view.getContext(), Game.class);
-            startActivityForResult(myIntent, 0);
+            //view.setImageResource(R.drawable.game_over);
+
+            //todo avaliar tipo de carta por aqui (8, K, Q, A)
+            Intent endingIntent = new Intent(view.getContext(), Ending.class);
+            startActivityForResult(endingIntent, 0);
         }else {
             view.setImageResource(deckOfCards.get(0).getId());
             deckOfCards.remove(0);
@@ -72,16 +60,37 @@ public class Game extends AppCompatActivity {
     }
 
     public void shuffleDeck(){
-        deckOfCards = deck.createDeck();
-        Collections.shuffle(deckOfCards);
+        deckOfCards = deck.createDeck();/*
+        Collections.shuffle(deckOfCards);*/
         System.out.println("TÁ AQUI PORRA - for debugging purposes");
         for (int i = 0; i<deckOfCards.size();i++){
             System.out.println(deckOfCards.get(i).getDescription());
         }
 
     }
-    //todo método para verificar se há cartas iguais na mão de alguém
+
     public void checkForSimilarCard(int id){
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(deckOfCards.size()==2){
+            finish();
+            return;
+        }
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("A sair do jogo...")
+                .setMessage("Sair? O jogo será perdido.")
+                .setPositiveButton("Fek it", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                }).setNegativeButton("Nope", null)
+                .show();
     }
 }
