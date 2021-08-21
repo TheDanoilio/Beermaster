@@ -61,7 +61,7 @@ public class Deck {
         Card aceC = new Card(R.drawable.card_1_black);
         deck.add(aceC);
         aceC.setDescription("As BLACK");
-       /* Card twoS = new SpecialCard(R.drawable.card_2_black);
+        Card twoS = new SpecialCard(R.drawable.card_2_black);
         deck.add(twoS);
         twoS.setDescription("2 BLACK");
         Card twoC = new Card(R.drawable.card_2_black);
@@ -211,7 +211,7 @@ public class Deck {
         kingH.setDescription("K RED");
         Card kingD = new SpecialCard(R.drawable.card_13_red);
         deck.add(kingD);
-        kingD.setDescription("K RED");*/
+        kingD.setDescription("K RED");
 
 
         Collections.shuffle(deck);
