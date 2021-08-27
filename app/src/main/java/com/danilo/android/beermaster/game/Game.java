@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.danilo.android.beermaster.R;
 import com.danilo.android.beermaster.cards.Card;
 import com.danilo.android.beermaster.cards.Deck;
+import com.danilo.android.beermaster.cards.Rules;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +24,10 @@ public class Game extends AppCompatActivity {
     private ArrayList<Card> deckOfCards = new ArrayList<>();
     private Deck deck = new Deck();
     public Button nextCardButton;
+    public Button cardRuleButton;
     public ImageView deckView;
+
+    public static Card cenas;
 
 
     @Override
@@ -33,6 +37,7 @@ public class Game extends AppCompatActivity {
         shuffleDeck();
 
         nextCardButton = (Button) findViewById(R.id.button_next_card);
+        cardRuleButton = (Button) findViewById(R.id.button_card_rules);
         deckView = (ImageView) findViewById(R.id.deck_of_cards);
         deckView.setImageResource(R.drawable.card_back);
 
@@ -42,19 +47,29 @@ public class Game extends AppCompatActivity {
                 showNextCard(deckView);
             }
         });
+
+        cardRuleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), Rules.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
     }
 
 
     public void showNextCard(ImageView view){
 
         if (deckOfCards.size() == 0){
-            //view.setImageResource(R.drawable.game_over);
 
             //todo avaliar tipo de carta por aqui (8, K, Q, A)
             Intent endingIntent = new Intent(view.getContext(), Ending.class);
             startActivityForResult(endingIntent, 0);
         }else {
+            cardRuleButton.setVisibility(View.VISIBLE);
+            cardRuleButton.bringToFront();
             view.setImageResource(deckOfCards.get(0).getId());
+            cenas = deckOfCards.get(0);
             deckOfCards.remove(0);
         }
     }
@@ -93,4 +108,9 @@ public class Game extends AppCompatActivity {
                 }).setNegativeButton("Nope", null)
                 .show();
     }
+
+    public static Card getCurrentCardId(){
+        return cenas;
+    }
+
 }

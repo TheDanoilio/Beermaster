@@ -6,4 +6,25 @@
     <string name="main_menu_play_btn">Play</string>
     <string name="main_menu_modes_btn">Game Modes</string>
     <string name="main_menu_rules_btn">Rules</string>
+
+    <!-- Card Rules -->
+    <string name="card_ace">Beermaster! Faz o que quiseres! (Isto inclui ignorar regras)</string>
+    <string name="card_queen">Regra - Mete uma regra para o jogo. Podes manter as anteriores ou não, your call.</string>
+    <string name="card_eight">Jogo do dedo - Podes a qualquer altura colocar o dedo na mesa, o último a colocar -> bebe.</string>
+    <string name="card_king">Rei da pergunta - Ninguém pode responder às tuas perguntas a menos que responda com outra pergunta.</string>
+
+    <string name="card_two_red">Manda beber 2 golos.</string>
+    <string name="card_three_red">Manda beber 3 golos.</string>
+    <string name="card_four_red">Manda beber 4 golos.</string>
+    <string name="card_five_red">Manda beber 5 golos.</string>
+    <string name="card_two_black">Bebe 2 golos. E não chora.</string>
+    <string name="card_three_black">Bebe 3 golos. E não chora.</string>
+    <string name="card_four_black">Bebe 4 golos. E não chora.</string>
+    <string name="card_five_black">Bebe 5 golos. E não chora.</string>
+    <string name="card_six">Marcas - Todos têm que dizer uma marca daquilo que decidires. Mas tu começas!</string>
+    <string name="card_seven">Buzz - A cada número terminado em 7 (17, 27, etc), múltiplos de 7 ou capícuas (11,22,33, etc) devem dizer "Buzz" e inverte a ordem.</string>
+    <string name="card_nine">Rima - Diz uma palavra, os outros têm que rimar com ela.</string>
+    <string name="card_ten">História - Tu começas com \"Era uma vez\", cada um repete o que foi dito anteriormente e acrescenta duas ou três palavras. Se fazem ou não sentido é outra história, hehehe.</string>
+    <string name="card_jack">Cascata - Todos começam a beber ao mesmo tempo, tu és o primeiro a parar de beber (quando quiseres), a pessoa que está ao teu lado só pode parar depois de ti e assim sucessivamente.</string>
+
 </resources>

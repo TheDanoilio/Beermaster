@@ -4,7 +4,7 @@ package com.danilo.android.beermaster.cards;
 public class Card {
 
     private int id;
-    private String description;
+    private int description;
 
     public Card(int id){
         this.id = id;
@@ -14,11 +14,11 @@ public class Card {
         return id;
     }
 
-    public String getDescription() {
+    public int getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(int description) {
         this.description = description;
     }
 
