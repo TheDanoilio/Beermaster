@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.danilo.android.beermaster.R;
 import com.danilo.android.beermaster.game.Game;
 
-public class Rules extends AppCompatActivity {
+public class CardRule extends AppCompatActivity {
 
     private ImageView cardView;
     private TextView cardDescription;

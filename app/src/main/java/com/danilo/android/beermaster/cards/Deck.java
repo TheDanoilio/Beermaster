@@ -1,33 +1,13 @@
 package com.danilo.android.beermaster.cards;
 
-import com.danilo.android.beermaster.R;
-
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Deck {
 
     public ArrayList<Card> deck = new ArrayList<>();
+    CardUtils helper = CardUtils.getInstance();
 
-
-
-    //todo metodo AUTOMATICO para criar o deck ?
-    // talvez com algo deste género:
-
-    /*
-    String mDrawableName = "myimg";
-    int resID = getResources().getIdentifier(mDrawableName , "drawable", getPackageName());
-    */
-
-    /*maybe dois for um dentro do outro? tipo
-
-    for (int suitNumber = 0; suitNumber < suit.length; suitNumber++){
-       for (int valueNumber = 0; valueNumber < value.length; valueNumber++){
-               deck.add(new Card(suit[suitNumber], value[valueNumber]);
-       }
-   }*/
-    //1 - black, 2 - red
-    String suits[] = new String[]{"black","black","red","red"};
+    String suits[] = new String[]{"B","B","R","R"};
     //1 - ace, 11 - Jack, 12 - Queen, 13 - King
     int cards[] = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13};
 
@@ -36,23 +16,7 @@ public class Deck {
      *
      * @return an array list of 52 cards, 26 red and 26 black
      */
-    public ArrayList createDeck(){
-
-
-     /*
-        String cardResName = "card_";
-        Card card = new Card(0);
-        for (int i=0; i<suits.length; i++){
-            for (int j=0; j<cards.length; j++){
-                    cardResName = "card_" + cards[j] + "_" + suits[i];
-                    System.out.println("card Resource name - " + cardResName);
-                    card.setDescription(suits[i] +" "+ cards[j]);
-                    card.setId(getResId(cardResName, this.getClass()));
-                    System.out.println("card id - " + card.getId());
-                    deck.add(card);
-            }
-        }
-*/
+   /* public ArrayList createDeck(){
 
         Card aceS = new SpecialCard(R.drawable.card_1_black);
         deck.add(aceS);
@@ -220,6 +184,26 @@ public class Deck {
 
         return deck;
     }
+*/
+    public ArrayList createDeckShort(){
+        helper.populateMaps();
+        for (int i=0; i<suits.length; i++){
+            for (int j=0; j<cards.length; j++){
+
+                //check if Ace/Eight/Queen/King
+                if(cards[j] == 1 || cards[j] == 8 || cards[j] == 12 || cards[j] == 13){
+                    Card card = new SpecialCard(helper.getRes(cards[j] + suits[i]));
+                    card.setDescription(helper.getDescription(cards[j] + suits[i]));
+                    deck.add(card);
+                }else{
+                    Card card = new Card(helper.getRes(cards[j] + suits[i]));
+                    card.setDescription(helper.getDescription(cards[j] + suits[i]));
+                    deck.add(card);
+                }
+            }
+        }
+        return deck;
+    };
 
 
 

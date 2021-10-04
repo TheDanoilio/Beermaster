@@ -4,12 +4,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Process;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.danilo.android.beermaster.MainActivity;
 import com.danilo.android.beermaster.MainMenu;
 import com.danilo.android.beermaster.R;
 
@@ -37,6 +35,7 @@ public class Ending extends AppCompatActivity {
             public void onClick(View view) {
                 Intent newGameIntent = new Intent(view.getContext(), Game.class);
                 startActivityForResult(newGameIntent, 0);
+                finish();
             }
         });
         mainMenuBtn.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +43,7 @@ public class Ending extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mainMenuIntent = new Intent(view.getContext(), MainMenu.class);
                 startActivityForResult(mainMenuIntent, 0);
+                finish();
             }
         });
 

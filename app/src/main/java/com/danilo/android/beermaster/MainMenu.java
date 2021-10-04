@@ -1,5 +1,7 @@
 package com.danilo.android.beermaster;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +27,32 @@ public class MainMenu extends AppCompatActivity {
                 startActivityForResult(myIntent, 0);
             }});
 
+        rulesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), GameRules.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
         //todo criar UI para cada botão
+    }
+
+    @Override
+    public void onBackPressed(){
+    System.out.println("ON BACK PRESSED");
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("A sair do jogo...")
+                .setMessage("Sair? ")
+                .setPositiveButton("Y", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                    }
+
+                }).setNegativeButton("N", null)
+                .show();
     }
 }

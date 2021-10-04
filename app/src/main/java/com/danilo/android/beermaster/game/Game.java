@@ -1,6 +1,7 @@
 package com.danilo.android.beermaster.game;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +11,13 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.danilo.android.beermaster.MainMenu;
 import com.danilo.android.beermaster.R;
 import com.danilo.android.beermaster.cards.Card;
 import com.danilo.android.beermaster.cards.Deck;
-import com.danilo.android.beermaster.cards.Rules;
+import com.danilo.android.beermaster.cards.CardRule;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 
 public class Game extends AppCompatActivity {
@@ -26,8 +27,9 @@ public class Game extends AppCompatActivity {
     public Button nextCardButton;
     public Button cardRuleButton;
     public ImageView deckView;
+    public Context mContext = this;
 
-    public static Card cenas;
+    public static Card currentCard;
 
 
     @Override
@@ -51,7 +53,7 @@ public class Game extends AppCompatActivity {
         cardRuleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), Rules.class);
+                Intent myIntent = new Intent(view.getContext(), CardRule.class);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -63,20 +65,23 @@ public class Game extends AppCompatActivity {
         if (deckOfCards.size() == 0){
 
             //todo avaliar tipo de carta por aqui (8, K, Q, A)
+            finish();
             Intent endingIntent = new Intent(view.getContext(), Ending.class);
             startActivityForResult(endingIntent, 0);
+
         }else {
             cardRuleButton.setVisibility(View.VISIBLE);
             cardRuleButton.bringToFront();
             view.setImageResource(deckOfCards.get(0).getId());
-            cenas = deckOfCards.get(0);
+            currentCard = deckOfCards.get(0);
             deckOfCards.remove(0);
         }
     }
 
     public void shuffleDeck(){
-        deckOfCards = deck.createDeck();/*
-        Collections.shuffle(deckOfCards);*/
+        //deckOfCards = deck.createDeck();
+        deckOfCards = deck.createDeckShort();
+        //Collections.shuffle(deckOfCards);
         System.out.println("TÁ AQUI PORRA - for debugging purposes");
         for (int i = 0; i<deckOfCards.size();i++){
             System.out.println(deckOfCards.get(i).getDescription());
@@ -90,10 +95,6 @@ public class Game extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        if(deckOfCards.size()==2){
-            finish();
-            return;
-        }
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("A sair do jogo...")
@@ -102,7 +103,10 @@ public class Game extends AppCompatActivity {
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        //finish();
+                        finishAffinity();
+                        Intent intent = new Intent(mContext, MainMenu.class);
+                        startActivity(intent);
                     }
 
                 }).setNegativeButton("Nope", null)
@@ -110,7 +114,7 @@ public class Game extends AppCompatActivity {
     }
 
     public static Card getCurrentCardId(){
-        return cenas;
+        return currentCard;
     }
 
 }

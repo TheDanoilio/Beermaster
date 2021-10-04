@@ -30,8 +30,10 @@
         app:layout_constraintTop_toBottomOf="@id/title_menu"
         app:layout_constraintVertical_bias="0.25" />
 
+
+    <!--"@string/main_menu_modes_btn"-->
     <Button
-        android:text="@string/main_menu_modes_btn"
+        android:text="Work In Progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_menu_modes"
