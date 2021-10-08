@@ -7,7 +7,7 @@
     <string name="main_menu_modes_btn">Game Modes</string>
     <string name="main_menu_rules_btn">Rules</string>
 
-    <!-- Card Rules -->
+    <!-- In-game Card Rules -->
     <string name="card_ace">Beermaster! Faz o que quiseres! (Isto inclui ignorar regras)</string>
     <string name="card_queen">Regra - Mete uma regra para o jogo. Podes manter as anteriores ou não, your call.</string>
     <string name="card_eight">Jogo do dedo - Podes a qualquer altura colocar o dedo na mesa, o último a colocar -> bebe.</string>
@@ -27,4 +27,26 @@
     <string name="card_ten">História - Tu começas com \"Era uma vez\", cada um repete o que foi dito anteriormente e acrescenta duas ou três palavras. Se fazem ou não sentido é outra história, hehehe.</string>
     <string name="card_jack">Cascata - Todos começam a beber ao mesmo tempo, tu és o primeiro a parar de beber (quando quiseres), a pessoa que está ao teu lado só pode parar depois de ti e assim sucessivamente.</string>
 
+
+    <!-- Main rules/explanation -->
+    <string name="game_explanation">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
+    <string-array name="main_rules">
+        <item>Jogo</item>
+        <item>Ás</item>
+        <item>2 a 5 \nRED</item>
+        <item>2 a 5 \nBLACK</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>Dama</item>
+        <item>Valete</item>
+        <item>Rei</item>
+    </string-array>
 </resources>

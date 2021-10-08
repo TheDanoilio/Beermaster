@@ -26,7 +26,7 @@ public class CardUtils {
         populateRulesMap();
     }
 
-    public int getRes(String key){
+    public int getResource(String key){
         return cardResources.get(key);
     }
 

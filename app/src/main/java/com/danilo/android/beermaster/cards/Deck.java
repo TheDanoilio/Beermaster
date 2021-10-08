@@ -192,11 +192,11 @@ public class Deck {
 
                 //check if Ace/Eight/Queen/King
                 if(cards[j] == 1 || cards[j] == 8 || cards[j] == 12 || cards[j] == 13){
-                    Card card = new SpecialCard(helper.getRes(cards[j] + suits[i]));
+                    Card card = new SpecialCard(helper.getResource(cards[j] + suits[i]));
                     card.setDescription(helper.getDescription(cards[j] + suits[i]));
                     deck.add(card);
                 }else{
-                    Card card = new Card(helper.getRes(cards[j] + suits[i]));
+                    Card card = new Card(helper.getResource(cards[j] + suits[i]));
                     card.setDescription(helper.getDescription(cards[j] + suits[i]));
                     deck.add(card);
                 }
@@ -204,7 +204,5 @@ public class Deck {
         }
         return deck;
     };
-
-
 
 }
