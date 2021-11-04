@@ -1,6 +1,7 @@
 package com.danilo.android.beermaster.cards;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 
@@ -185,6 +186,9 @@ public class Deck {
         return deck;
     }
 */
+
+
+    //todo na vez de dois loops,talvez um boleano tipo true=red e false=black
     public ArrayList createDeckShort(){
         helper.populateMaps();
         for (int i=0; i<suits.length; i++){
@@ -202,6 +206,8 @@ public class Deck {
                 }
             }
         }
+
+        Collections.shuffle(deck);
         return deck;
     };
 
