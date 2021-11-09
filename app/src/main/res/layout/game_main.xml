@@ -14,7 +14,8 @@
         app:layout_constraintLeft_toLeftOf="@id/guideline_left"
         app:layout_constraintRight_toRightOf="@id/guideline_right"
         app:layout_constraintTop_toTopOf="@id/guideline_top"
-        android:background="#000"/>
+        android:background="#000"
+        android:forceDarkAllowed="false"/>
 
     <Button
         android:id="@+id/button_next_card"

@@ -13,7 +13,6 @@
 
     <TextView
         android:id="@+id/main_rules_text"
-        android:text="ASDASDDSA"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"

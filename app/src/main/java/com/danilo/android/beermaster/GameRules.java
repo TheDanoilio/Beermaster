@@ -30,7 +30,7 @@ public class GameRules extends AppCompatActivity {
     /*= {"WIP", "WIP", "WIP", "WIP", "WIP", "WIP", "WIP", "WIP", "WIP", "WIP", "WIP",
             "WIP", "WIP", "WIP", "WIP", "WIP", "WIP", "WIP", "WIP"};*/
 
-
+    //todo verificar tamanho das letras e formatacao
 
     //todo mesma forma de fazer como a nova forma de fazer o deck
     // e ir buscar as imagens para a imageview de forma parecida
@@ -75,11 +75,11 @@ public class GameRules extends AppCompatActivity {
                         explanation.setText(R.string.card_ace);
                         break;
                     case 2:
-                        cardPic.setImageResource(R.drawable.card_back);
+                        cardPic.setImageResource(R.drawable.card_25_red_small);
                         explanation.setText(R.string.card_five_red);
                         break;
                     case 3:
-                        cardPic.setImageResource(R.drawable.card_back);
+                        cardPic.setImageResource(R.drawable.card_25_black_small);
                         explanation.setText(R.string.card_five_black);
                         break;
                     case 4:
